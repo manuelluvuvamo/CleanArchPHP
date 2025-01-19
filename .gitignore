@@ -1,0 +1,21 @@
+/vendor/
+/.idea/
+/.vscode/
+/*.log
+/composer.lock
+
+# Ignorar arquivos de cache do PHP
+*.php~
+
+# Ignorar diretórios temporários de sistema
+/tmp/
+/temp/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos gerados por Composer e PHPUnit
+phpunit.result.cache
+
+# Ignorar diretórios de build
+/build/

@@ -20,7 +20,7 @@ class MatricularAlunoTest extends TestCase
 
         try {
             // Defina o caminho do banco de dados
-            $caminhoBanco = __DIR__ . '/../../../../banco_teste.sqlite';
+            $caminhoBanco = __DIR__ . '/../../../../test_output/banco_teste.sqlite';
         
             // Crie a conexão com o SQLite
             $conexao = new \PDO('sqlite:' . $caminhoBanco);
