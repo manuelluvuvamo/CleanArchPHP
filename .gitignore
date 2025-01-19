@@ -19,3 +19,6 @@ phpunit.result.cache
 
 # Ignorar diretórios de build
 /build/
+
+# Ignorar diretórios de output de testes
+/test_output/
