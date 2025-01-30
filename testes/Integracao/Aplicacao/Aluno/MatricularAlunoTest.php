@@ -14,8 +14,8 @@ class MatricularAlunoTest extends TestCase
     {
         $dadosAluno = new MatricularAlunoDto(
             '123.456.789-10',
-            'Manuel Luvuvamo',
-            'manuel.teste@gmail.com',
+            'Fulano de  Tal',
+            'fulano.tal@test.com',
         );
 
         try {
@@ -44,9 +44,11 @@ class MatricularAlunoTest extends TestCase
         $useCase->executa($dadosAluno);
 
         $aluno = $repositorioDeAluno->buscarPorCpf(new Cpf('123.456.789-10'));
-        $this->assertSame('Manuel Luvuvamo', (string) $aluno->nome());
-        $this->assertSame('manuel.teste@gmail.com', (string) $aluno->email());
+        $this->assertSame('Fulano de  Tal', (string) $aluno->nome());
+        $this->assertSame('fulano.tal@test.com', (string) $aluno->email());
         $this->assertEmpty($aluno->telefones());
+
+        unlink($caminhoBanco);
     
     }
 }

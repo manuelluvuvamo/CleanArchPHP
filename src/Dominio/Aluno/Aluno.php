@@ -28,6 +28,8 @@ class Aluno
 
   public function adicionarTelefones(string $ddd, string $numero)
   {
+    if (count($this->telefones) >= 2)
+      throw new AlunoLimiteTelefone();
     $this->telefones[] = new Telefone($ddd, $numero);
     return $this;
   }
