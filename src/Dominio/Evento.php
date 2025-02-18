@@ -4,5 +4,5 @@ namespace CleanCode\Arquitetura\Dominio;
 
 interface Evento
 {
-    public function momento(): \DateTimeImmutable
+    public function momento(): \DateTimeImmutable;
 }

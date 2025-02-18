@@ -6,6 +6,8 @@ use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
 use CleanCode\Arquitetura\Dominio\Cpf;
 use CleanCode\Arquitetura\Infra\Aluno\RepositorioDeAlunoComPdo;
+use CleanCode\Arquitetura\Dominio\PublicadorDeEvento;
+use CleanCode\Arquitetura\Dominio\Aluno\LogDeAlunoMatriculado;
 use PHPUnit\Framework\TestCase;
 
 class MatricularAlunoTest extends TestCase
@@ -39,7 +41,11 @@ class MatricularAlunoTest extends TestCase
         }
 
         $repositorioDeAluno = new RepositorioDeAlunoComPdo($conexao);
-        $useCase = new MatricularAluno($repositorioDeAluno);
+
+        $publicador = new PublicadorDeEvento();
+        $publicador->adicionarOuvinte (new LogDeAlunoMatriculado());
+
+        $useCase = new MatricularAluno($repositorioDeAluno, $publicador);
 
         $useCase->executa($dadosAluno);
 

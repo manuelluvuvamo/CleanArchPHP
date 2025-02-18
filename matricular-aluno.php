@@ -4,6 +4,8 @@ use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
 use CleanCode\Arquitetura\Dominio\Aluno\Aluno;
 use CleanCode\Arquitetura\Infra\Aluno\RepositorioDeAlunoEmMemoria;
+use CleanCode\Arquitetura\Dominio\PublicadorDeEvento;
+use CleanCode\Arquitetura\Dominio\Aluno\LogDeAlunoMatriculado;
 
 require 'vendor/autoload.php';
 
@@ -24,6 +26,11 @@ $dadosAluno = new MatricularAlunoDto(
 );
 
 $repositorioDeAluno = new RepositorioDeAlunoEmMemoria();
-$useCase = new MatricularAluno($repositorioDeAluno);
 
+$publicador = new PublicadorDeEvento();
+$publicador->adicionarOuvinte (new LogDeAlunoMatriculado());
+
+
+$useCase = new MatricularAluno($repositorioDeAluno, $publicador);
 $useCase->executa($dadosAluno);
+
