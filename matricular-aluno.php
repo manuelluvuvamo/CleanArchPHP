@@ -25,12 +25,11 @@ $dadosAluno = new MatricularAlunoDto(
   $email,
 );
 
-$repositorioDeAluno = new RepositorioDeAlunoEmMemoria();
 
 $publicador = new PublicadorDeEvento();
 $publicador->adicionarOuvinte (new LogDeAlunoMatriculado());
 
 
-$useCase = new MatricularAluno($repositorioDeAluno, $publicador);
+$useCase = new MatricularAluno(new RepositorioDeAlunoEmMemoria(), $publicador);
 $useCase->executa($dadosAluno);
 

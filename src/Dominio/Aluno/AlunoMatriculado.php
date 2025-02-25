@@ -5,7 +5,7 @@ namespace CleanCode\Arquitetura\Dominio\Aluno;
 use CleanCode\Arquitetura\Dominio\Evento;
 use CleanCode\Arquitetura\Dominio\Cpf;
 
-class AlunoMatriculo implements Evento
+class AlunoMatriculado implements Evento
 {
     private \DatetimeImmutable $momento;
     private Cpf $cpfAluno;

@@ -4,7 +4,9 @@ namespace CleanCode\Arquitetura\Testes\Unidade\Aplicacao\Aluno;
 
 use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
+use CleanCode\Arquitetura\Dominio\Aluno\LogDeAlunoMatriculado;
 use CleanCode\Arquitetura\Dominio\Cpf;
+use CleanCode\Arquitetura\Dominio\PublicadorDeEvento;
 use CleanCode\Arquitetura\Infra\Aluno\RepositorioDeAlunoEmMemoria;
 use PHPUnit\Framework\TestCase;
 
@@ -18,8 +20,12 @@ class MatricularAlunoTest extends TestCase
             'manuel.teste@gmail.com',
         );
 
+        $publicador = new PublicadorDeEvento();
+        $publicador->adicionarOuvinte (new LogDeAlunoMatriculado());
+
+
         $repositorioDeAluno = new RepositorioDeAlunoEmMemoria();
-        $useCase = new MatricularAluno($repositorioDeAluno);
+        $useCase = new MatricularAluno($repositorioDeAluno, $publicador);
 
         $useCase->executa($dadosAluno);
 

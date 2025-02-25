@@ -15,6 +15,7 @@ class MatricularAluno
     public function __construct(RepositorioDeAluno $repositorioDeAluno, PublicadorDeEvento $publicador)
     {
         $this->repositorioDeAluno = $repositorioDeAluno;
+        $this->publicador = $publicador;
      
     }
 
@@ -23,6 +24,6 @@ class MatricularAluno
         $aluno = Aluno::comCpfNomeEEmail($dados->cpfAluno, $dados->nomeAluno, $dados->emailAluno);
         $this->repositorioDeAluno->adicionar($aluno);
         
-        $publicador->publicar (new AlunoMatriculado($aluno->cpf()));
+        $this->publicador->publicar (new AlunoMatriculado($aluno->cpf()));
     }
 }
