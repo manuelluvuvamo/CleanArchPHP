@@ -1,11 +1,11 @@
 <?php
 
-use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
-use CleanCode\Arquitetura\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
-use CleanCode\Arquitetura\Dominio\Aluno\Aluno;
-use CleanCode\Arquitetura\Infra\Aluno\RepositorioDeAlunoEmMemoria;
-use CleanCode\Arquitetura\Dominio\PublicadorDeEvento;
-use CleanCode\Arquitetura\Dominio\Aluno\LogDeAlunoMatriculado;
+use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
+use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
+use CleanCode\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoEmMemoria;
+use CleanCode\Arquitetura\Academico\Dominio\PublicadorDeEvento;
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\LogDeAlunoMatriculado;
 
 require 'vendor/autoload.php';
 
