@@ -3,9 +3,9 @@
 namespace CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno;
 
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
-use CleanCode\Arquitetura\Academico\Dominio\Aluno\RepositorioDeAluno;
-use CleanCode\Arquitetura\Academico\Dominio\PublicadorDeEvento;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\AlunoMatriculado;
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\RepositorioDeAluno;
+use CleanCode\Arquitetura\Shared\Dominio\Evento\PublicadorDeEvento;
 
 class MatricularAluno
 {

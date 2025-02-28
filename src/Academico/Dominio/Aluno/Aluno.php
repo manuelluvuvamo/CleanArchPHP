@@ -2,8 +2,8 @@
 
 namespace CleanCode\Arquitetura\Academico\Dominio\Aluno;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
 use CleanCode\Arquitetura\Academico\Dominio\Email;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 class Aluno
 {

@@ -2,7 +2,7 @@
 
 namespace CleanCode\Arquitetura\Academico\Dominio\Indicacao;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 interface RepositorioDeIndicacao
 {

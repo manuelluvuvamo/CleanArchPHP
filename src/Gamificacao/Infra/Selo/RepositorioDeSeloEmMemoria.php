@@ -3,9 +3,9 @@
 namespace CleanCode\Arquitetura\Gamificacao\Infra\Selo;
 
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
 use CleanCode\Arquitetura\Gamificacao\Dominio\Selo\RepositorioDeSelo;
 use CleanCode\Arquitetura\Gamificacao\Dominio\Selo\Selo;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 class RepositorioDeSeloEmMemoria implements RepositorioDeSelo
 {

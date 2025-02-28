@@ -2,8 +2,8 @@
 
 namespace CleanCode\Arquitetura\Gamificacao\Testes\Unidade\Dominio\Selo;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
 use CleanCode\Arquitetura\Gamificacao\Dominio\Selo\Selo;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 use PHPUnit\Framework\TestCase;
 
 class SeloTest extends TestCase

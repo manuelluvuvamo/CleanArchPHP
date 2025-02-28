@@ -2,10 +2,10 @@
 
 namespace CleanCode\Arquitetura\Academico\Infra\Aluno;
 
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\AlunoNaoEncontrado;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\RepositorioDeAluno;
-use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 class RepositorioDeAlunoEmMemoria implements RepositorioDeAluno
 {

@@ -2,10 +2,10 @@
 
 namespace CleanCode\Arquitetura\Academico\Infra\Indicacao;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
 use CleanCode\Arquitetura\Academico\Dominio\Indicacao\Indicacao;
 use CleanCode\Arquitetura\Academico\Dominio\Indicacao\RepositorioDeIndicacao;
-use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 class RepositorioDeIndicacaoComPdo implements RepositorioDeIndicacao
 {

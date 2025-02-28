@@ -1,8 +1,6 @@
 <?php
 
-namespace CleanCode\Arquitetura\Academico\Dominio;
-
-use CleanCode\Arquitetura\Academico\Dominio\Evento;
+namespace CleanCode\Arquitetura\Shared\Dominio\Evento;
 
 class PublicadorDeEvento
 {

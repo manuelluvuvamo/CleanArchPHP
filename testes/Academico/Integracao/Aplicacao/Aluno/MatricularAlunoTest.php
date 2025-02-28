@@ -4,14 +4,14 @@ namespace CleanCode\Arquitetura\Testes\Academico\Integracao\Aplicacao\Aluno;
 
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
-use CleanCode\Arquitetura\Academico\Dominio\Email;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
-use CleanCode\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoComPdo;
-use CleanCode\Arquitetura\Academico\Dominio\PublicadorDeEvento;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\LogDeAlunoMatriculado;
-use PHPUnit\Framework\TestCase;
+use CleanCode\Arquitetura\Academico\Dominio\Email;
+use CleanCode\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoComPdo;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Evento\PublicadorDeEvento;
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
 class MatricularAlunoTest extends TestCase
 {

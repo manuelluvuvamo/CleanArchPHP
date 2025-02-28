@@ -2,7 +2,7 @@
 
 namespace CleanCode\Arquitetura\Gamificacao\Dominio\Selo;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 
 class Selo
 {

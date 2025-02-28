@@ -2,9 +2,8 @@
 
 namespace CleanCode\Arquitetura\Academico\Dominio\Aluno;
 
-use CleanCode\Arquitetura\Academico\Dominio\Aluno\AlunoMatriculado;
-use CleanCode\Arquitetura\Academico\Dominio\Evento;
-use CleanCode\Arquitetura\Academico\Dominio\OuvinteDeEvento;
+use CleanCode\Arquitetura\Shared\Dominio\Evento\Evento;
+use CleanCode\Arquitetura\Shared\Dominio\Evento\OuvinteDeEvento;
 
 class LogDeAlunoMatriculado extends OuvinteDeEvento
 {

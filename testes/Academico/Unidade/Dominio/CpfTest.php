@@ -2,7 +2,7 @@
 
 namespace CleanCode\Arquitetura\Academico\Testes\Unidade\Dominio;
 
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
 use PHPUnit\Framework\TestCase;
 
 class CpfTest extends TestCase

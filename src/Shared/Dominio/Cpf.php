@@ -1,6 +1,6 @@
 <?php
 
-namespace CleanCode\Arquitetura\Academico\Dominio;
+namespace CleanCode\Arquitetura\Shared\Dominio;
 
 class Cpf
 {

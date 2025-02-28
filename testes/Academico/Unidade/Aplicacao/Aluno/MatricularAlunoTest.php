@@ -5,9 +5,9 @@ namespace CleanCode\Arquitetura\Academico\Testes\Unidade\Aplicacao\Aluno;
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\LogDeAlunoMatriculado;
-use CleanCode\Arquitetura\Academico\Dominio\Cpf;
-use CleanCode\Arquitetura\Academico\Dominio\PublicadorDeEvento;
 use CleanCode\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoEmMemoria;
+use CleanCode\Arquitetura\Shared\Dominio\Cpf;
+use CleanCode\Arquitetura\Shared\Dominio\Evento\PublicadorDeEvento;
 use PHPUnit\Framework\TestCase;
 
 class MatricularAlunoTest extends TestCase
