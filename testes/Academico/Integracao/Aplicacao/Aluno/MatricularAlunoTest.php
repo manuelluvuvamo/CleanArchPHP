@@ -1,14 +1,17 @@
 <?php
 
-namespace CleanCode\Arquitetura\Academico\Testes\Integracao\Aplicacao\Aluno;
+namespace CleanCode\Arquitetura\Testes\Academico\Integracao\Aplicacao\Aluno;
 
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use CleanCode\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
 use CleanCode\Arquitetura\Academico\Dominio\Cpf;
+use CleanCode\Arquitetura\Academico\Dominio\Email;
+use CleanCode\Arquitetura\Academico\Dominio\Aluno\Aluno;
 use CleanCode\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoComPdo;
 use CleanCode\Arquitetura\Academico\Dominio\PublicadorDeEvento;
 use CleanCode\Arquitetura\Academico\Dominio\Aluno\LogDeAlunoMatriculado;
 use PHPUnit\Framework\TestCase;
+use Mockery;
 
 class MatricularAlunoTest extends TestCase
 {
@@ -16,31 +19,16 @@ class MatricularAlunoTest extends TestCase
     {
         $dadosAluno = new MatricularAlunoDto(
             '123.456.789-10',
-            'Fulano de  Tal',
+            'Fulano de Tal',
             'fulano.tal@test.com',
         );
 
-        try {
-            // Defina o caminho do banco de dados
-            $caminhoBanco = __DIR__ . '/../../../../../test_output/banco_teste.sqlite';
-        
-            // Crie a conexão com o SQLite
-            $conexao = new \PDO('sqlite:' . $caminhoBanco);
-            $conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        
-            // Carregue o arquivo SQL
-            $scriptSql = $scriptSql = file_get_contents(__DIR__ . '/../../../../../banco.sql');
+        $repositorioDeAluno = Mockery::mock(RepositorioDeAlunoComPdo::class);
+        $repositorioDeAluno->shouldreceive('adicionar')->once()->with(Mockery::type(Aluno::class));
+        $repositorioDeAluno->shouldReceive('buscarPorCpf')->once()
+            ->with(Mockery::on(fn ($cpf) => (string)$cpf === '123.456.789-10'))
+            ->andReturn(new Aluno(new Cpf('123.456.789-10'), 'Fulano de Tal', new Email('fulano.tal@test.com')));
 
-        
-            // Execute o script SQL
-            $conexao->exec($scriptSql);
-        
-            echo "Banco de dados criado com sucesso!";
-        } catch (\PDOException $e) {
-            die('Erro ao criar o banco de dados: ' . $e->getMessage());
-        }
-
-        $repositorioDeAluno = new RepositorioDeAlunoComPdo($conexao);
 
         $publicador = new PublicadorDeEvento();
         $publicador->adicionarOuvinte (new LogDeAlunoMatriculado());
@@ -50,11 +38,14 @@ class MatricularAlunoTest extends TestCase
         $useCase->executa($dadosAluno);
 
         $aluno = $repositorioDeAluno->buscarPorCpf(new Cpf('123.456.789-10'));
-        $this->assertSame('Fulano de  Tal', (string) $aluno->nome());
+        $this->assertSame('Fulano de Tal', (string) $aluno->nome());
         $this->assertSame('fulano.tal@test.com', (string) $aluno->email());
         $this->assertEmpty($aluno->telefones());
-
-        unlink($caminhoBanco);
     
+    }
+
+    protected function tearDown(): void
+    {
+        Mockery::close();
     }
 }
